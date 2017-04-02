@@ -2,18 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bola : MonoBehaviour {
-	
-	public Rigidbody2D rb;
-	public float force;
+public class Bloque : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		rb.AddForce (new Vector2 (force, force));
+		
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
+	}
+	
+	void OnCollisionEnter2D(Collision2D col){
+		if (col.gameObject.tag == "Ball"){
+			Destroy (gameObject);
+		}
 	}
 }
